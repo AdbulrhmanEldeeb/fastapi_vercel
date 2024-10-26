@@ -1,0 +1,24 @@
+
+# the frontend should have a unique port and backend should have diffrent one
+# examle :
+# uvicorn on port 8080
+# python -m http.server 8000  , allow_origins=["http://localhost:8000"],
+# is used to open app in the folder that contains index.html
+
+###### database 
+Host: sql8.freesqldatabase.com
+Database name: sql8740746
+Database user: sql8740746
+Database password: N7K4Nx7g6c
+Port number: 3306
+
+# render run code 
+uvicorn main:app --host 0.0.0.0 --port $PORT 
+
+
+## vercel commands 
+npm i -g vercel    # to install vercel 
+
+vercel login 
+
+vercel .  # to redeploy 

@@ -1,0 +1,57 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.12'
+
+    - name: Install dependencies
+      run: |
+        python -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Set up MySQL
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y mysql-client
+        mysql --host=sql8.freesqldatabase.com --port=3306 --user=sql8740746 --password=N7K4Nx7g6c -e "CREATE DATABASE IF NOT EXISTS sql8740746;"
+
+    - name: Run migrations
+      run: |
+        source venv/bin/activate
+        python -c "
+        from connection.database import Base, engine;
+        import models;
+        Base.metadata.create_all(bind=engine);
+        "
+
+    - name: Run tests
+      run: |
+        source venv/bin/activate
+        # Replace with your test command, e.g., pytest
+        echo "No tests defined"
+
+    # - name: Build and deploy
+    #   if: github.ref == 'refs/heads/main'
+    #   run: |
+    #     source venv/bin/activate
+    #     uvicorn main:app --host 0.0.0.0 --port 8000
+    #     # Here you can add additional steps for deploying your app

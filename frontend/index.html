@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Customer Management</h1>
+
+    <div class="grid-container">
+        <!-- Add Customer Section -->
+        <section id="add-customer" class="grid-item">
+            <h2>Add Customer</h2>
+            <input type="text" id="add-customer-name" placeholder="Customer Name" required>
+            <div class="buttons">
+                <button onclick="addCustomer()">Add Customer</button>
+            </div>
+        </section>
+
+        <!-- Get Customer Section -->
+        <section id="get-customer" class="grid-item">
+            <h2>Get Customer</h2>
+            <input type="number" id="get-customer-id" placeholder="Customer ID" required>
+            <div class="buttons">
+                <button onclick="getCustomer()">Get Customer</button>
+            </div>
+        </section>
+
+        <!-- Update Customer Section -->
+        <section id="update-customer" class="grid-item">
+            <h2>Update Customer</h2>
+            <input type="number" id="update-customer-id" placeholder="Customer ID" required>
+            <input type="text" id="update-customer-name" placeholder="Customer Name" required>
+            <div class="buttons">
+                <button onclick="updateCustomer()">Update Customer</button>
+            </div>
+        </section>
+
+        <!-- Delete Customer Section -->
+        <section id="delete-customer" class="grid-item">
+            <h2>Delete Customer</h2>
+            <input type="number" id="delete-customer-id" placeholder="Customer ID" required>
+            <div class="buttons">
+                <button onclick="deleteCustomer()">Delete Customer</button>
+            </div>
+        </section>
+
+        <!-- Add Order Section -->
+        <section id="add-order" class="grid-item">
+            <h2>Add Order</h2>
+            <input type="number" id="order-customer-id" placeholder="Customer ID" required>
+            <div class="buttons">
+                <button onclick="addOrder()">Add Order</button>
+            </div>
+        </section>
+
+        <!-- Get Customer Orders Section -->
+        <section id="get-customer-orders" class="grid-item">
+            <h2>Get Customer Orders</h2>
+            <input type="number" id="orders-customer-id" placeholder="Customer ID" required>
+            <div class="buttons">
+                <button onclick="getCustomerOrders()">Get Customer Orders</button>
+            </div>
+        </section>
+    </div>
+
+    <div id="result"></div>
+    <script src="scripts.js"></script>
+</body>
+</html>
